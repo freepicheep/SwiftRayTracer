@@ -310,7 +310,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Swift Ray Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = B95Q9K92RZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -327,7 +327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageThreeFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift Ray Tracer/definitions.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -340,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Swift Ray Tracer/Preview Content\"";
 				DEVELOPMENT_TEAM = B95Q9K92RZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -357,7 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageThreeFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift Ray Tracer/definitions.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
