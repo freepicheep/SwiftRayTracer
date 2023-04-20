@@ -1,6 +1,8 @@
 # SwiftRayTracer
 
-A simple ray tracer largely based on amengede's work [here](https://github.com/amengede/getIntoMetalDev/tree/main/11%20Reflections/finished). The goal of this project is to compare ray tracing on the CPU and GPU. 
+A simple ray tracer largely based on amengede's work [here](https://github.com/amengede/getIntoMetalDev/tree/main/11%20Reflections/finished). He has a video explaining the process [here](https://youtu.be/GjOfrxjwiaU). 
+
+The goal of this project is to compare ray tracing on the CPU and GPU.
 
 # Usage
 
