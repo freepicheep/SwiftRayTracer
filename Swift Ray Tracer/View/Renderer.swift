@@ -111,7 +111,7 @@ class Renderer: NSObject, MTKViewDelegate {
         */
         var sceneData: Shader_SceneData = Shader_SceneData()
         sceneData.sphereCount = Float(sphereCount)
-        sceneData.maxBounces = 1
+        sceneData.maxBounces = 10
         sceneData.camera_pos = gamescene.camera.position
         sceneData.camera_forwards = gamescene.camera.forwards
         sceneData.camera_right = gamescene.camera.right
