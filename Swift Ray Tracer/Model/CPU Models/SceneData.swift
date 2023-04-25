@@ -9,7 +9,7 @@ import Foundation
 
 struct SceneData {
     var cameraPos: simd_float3
-    var sphereCount: Float
+    var sphereCount: Int
     var maxBounces: Int
     var cameraForwards: simd_float3
     var cameraRight: simd_float3

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 /*
  game scene will be automatically forwarded here...
@@ -13,14 +14,45 @@ import SwiftUI
 struct appView: View {
     
     @EnvironmentObject var gamescene: GameScene
+    @ObservedObject var renderedImageModel = RenderedImageModel()
     
     var body: some View {
         VStack{
-            Text("Ray Tracing!")
-        
-            ContentView()
-                .frame(width: 800, height: 600)
+            Button(action: createCPUExample) {
+                Text("Save CPU Image")
+            }
+            .padding()
+            .buttonStyle(.borderedProminent)
             
+            if let image = renderedImageModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+        
+//            ContentView()
+//                .frame(width: 800, height: 600)
+            
+        }
+    }
+    
+    func createCPUExample() {
+        let sceneData = SceneData(
+            cameraPos: gamescene.camera.position,
+            sphereCount: gamescene.spheres.count,
+            maxBounces: gamescene.maxBounces,
+            cameraForwards: gamescene.camera.forwards,
+            cameraRight: gamescene.camera.right,
+            cameraUp: gamescene.camera.up
+        )
+
+        let imageWidth = 800
+        let imageHeight = 600
+
+        if let renderedImage = ray_tracing_cpu(imageWidth: imageWidth, imageHeight: imageHeight, sceneData: sceneData, spheres: gamescene.spheres) {
+                renderedImageModel.image = renderedImage
+        } else {
+            print("Error: Failed to render image.")
         }
     }
 }
