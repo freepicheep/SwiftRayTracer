@@ -12,8 +12,6 @@ struct GPUContentView: UIViewRepresentable {
     
     @EnvironmentObject var gamescene: GameScene
     
-    let startTime = CACurrentMediaTime()
-    
     func makeCoordinator() -> Renderer {
         Renderer(self, gamescene: gamescene)
     }
@@ -33,10 +31,6 @@ struct GPUContentView: UIViewRepresentable {
         mtkView.drawableSize = mtkView.frame.size
         mtkView.isPaused = false
         mtkView.depthStencilPixelFormat = .depth32Float
-        
-        //debug
-//        let duration = endTime - startTime
-//        print("GPU ray tracing took \(duration) seconds")
         
         return mtkView
     }

@@ -25,6 +25,7 @@ struct appView: View {
                 .tag(0)
             
             CPUContentView()
+                .frame(width: 800, height: 600)
                 .environmentObject(gamescene)
                 .tabItem {
                     VStack {

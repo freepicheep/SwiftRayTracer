@@ -8,6 +8,10 @@
 import MetalKit
 
 class Renderer: NSObject, MTKViewDelegate {
+    // Add a property to control the rendering loop
+    var isRendering: Bool = true
+    var frameCount: Int = 0
+    let maxFrameCount: Int = 1
     
     var parent: GPUContentView
     var metalDevice: MTLDevice!
@@ -86,6 +90,10 @@ class Renderer: NSObject, MTKViewDelegate {
     }
     
     func draw(in view: MTKView) {
+        // Check if rendering should continue
+        if !isRendering || frameCount >= maxFrameCount {
+            return
+        }
         
         guard let drawable = view.currentDrawable else {
             return
@@ -142,14 +150,13 @@ class Renderer: NSObject, MTKViewDelegate {
         let threadsPerGrid = MTLSizeMake(Int(view.drawableSize.width),
                                          Int(view.drawableSize.height), 1)
         
+        
         renderEncoder.dispatchThreads(threadsPerGrid, threadsPerThreadgroup: threadsPerGroup)
-        
-        
         renderEncoder.endEncoding()
-        
         commandBuffer.present(drawable)
         commandBuffer.commit()
         
+        // Increment the frame count
+        frameCount += 1
     }
-    
 }
