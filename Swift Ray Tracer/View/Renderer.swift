@@ -9,13 +9,13 @@ import MetalKit
 
 class Renderer: NSObject, MTKViewDelegate {
     
-    var parent: ContentView
+    var parent: GPUContentView
     var metalDevice: MTLDevice!
     var metalCommandQueue: MTLCommandQueue!
     var pipeline: MTLComputePipelineState!
     var gamescene: GameScene
     
-    init(_ parent: ContentView, gamescene: GameScene) {
+    init(_ parent: GPUContentView, gamescene: GameScene) {
         
         self.gamescene = gamescene
         

@@ -121,7 +121,7 @@ func rayColor(_ xy: simd_float2, _ ray: Ray, _ sceneData: SceneData, _ spheres: 
 }
 
 
-func ray_tracing_cpu(imageWidth: Int, imageHeight: Int, sceneData: SceneData, spheres: [Sphere]) -> UIImage? {
+func rayTracingCpu(imageWidth: Int, imageHeight: Int, sceneData: SceneData, spheres: [Sphere]) -> UIImage? {
     let pixelData = UnsafeMutablePointer<simd_float3>.allocate(capacity: imageWidth * imageHeight)
     
     for j in 0..<imageHeight {

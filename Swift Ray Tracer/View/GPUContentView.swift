@@ -8,15 +8,17 @@
 import SwiftUI
 import MetalKit
 
-struct ContentView: UIViewRepresentable {
+struct GPUContentView: UIViewRepresentable {
     
     @EnvironmentObject var gamescene: GameScene
+    
+    let startTime = CACurrentMediaTime()
     
     func makeCoordinator() -> Renderer {
         Renderer(self, gamescene: gamescene)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<ContentView>) -> MTKView {
+    func makeUIView(context: UIViewRepresentableContext<GPUContentView>) -> MTKView {
         
         let mtkView = MTKView()
         mtkView.delegate = context.coordinator
@@ -32,15 +34,19 @@ struct ContentView: UIViewRepresentable {
         mtkView.isPaused = false
         mtkView.depthStencilPixelFormat = .depth32Float
         
+        //debug
+//        let duration = endTime - startTime
+//        print("GPU ray tracing took \(duration) seconds")
+        
         return mtkView
     }
     
-    func updateUIView(_ uiView: MTKView, context: UIViewRepresentableContext<ContentView>) {
+    func updateUIView(_ uiView: MTKView, context: UIViewRepresentableContext<GPUContentView>) {
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GPUContentView()
     }
 }

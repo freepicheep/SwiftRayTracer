@@ -13,7 +13,7 @@
 		764AB74C27D0E93000812B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764AB74B27D0E93000812B70 /* Assets.xcassets */; };
 		764AB74F27D0E93000812B70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764AB74E27D0E93000812B70 /* Preview Assets.xcassets */; };
 		764AB76627D0EC0D00812B70 /* appView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76227D0EC0D00812B70 /* appView.swift */; };
-		764AB76727D0EC0D00812B70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76327D0EC0D00812B70 /* ContentView.swift */; };
+		764AB76727D0EC0D00812B70 /* GPUContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76327D0EC0D00812B70 /* GPUContentView.swift */; };
 		764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76527D0EC0D00812B70 /* Renderer.swift */; };
 		764AB76B27D0EC6500812B70 /* SwiftRayTracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76A27D0EC6500812B70 /* SwiftRayTracerApp.swift */; };
 		76F68F5028A73D10002175B4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 76F68F4F28A73D10002175B4 /* Shaders.metal */; };
@@ -22,6 +22,7 @@
 		A544D2A729F4E8D9009C33E2 /* SceneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A629F4E8D9009C33E2 /* SceneData.swift */; };
 		A544D2A929F4EC5F009C33E2 /* RenderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A829F4EC5F009C33E2 /* RenderState.swift */; };
 		A5F4839129F84D2C0077DA3E /* RenderedImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */; };
+		A5F4839329F85A9B0077DA3E /* CPUContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4839229F85A9B0077DA3E /* CPUContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,7 @@
 		764AB74E27D0E93000812B70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764AB75927D0EBD800812B70 /* definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = definitions.h; sourceTree = "<group>"; };
 		764AB76227D0EC0D00812B70 /* appView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appView.swift; sourceTree = "<group>"; };
-		764AB76327D0EC0D00812B70 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		764AB76327D0EC0D00812B70 /* GPUContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUContentView.swift; sourceTree = "<group>"; };
 		764AB76527D0EC0D00812B70 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		764AB76A27D0EC6500812B70 /* SwiftRayTracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRayTracerApp.swift; sourceTree = "<group>"; };
 		76F68F4F28A73D10002175B4 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		A544D2A829F4EC5F009C33E2 /* RenderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderState.swift; sourceTree = "<group>"; };
 		A5F4838F29F84C660077DA3E /* Swift Ray Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift Ray Tracer.entitlements"; sourceTree = "<group>"; };
 		A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderedImageModel.swift; sourceTree = "<group>"; };
+		A5F4839229F85A9B0077DA3E /* CPUContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,9 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				764AB76227D0EC0D00812B70 /* appView.swift */,
-				764AB76327D0EC0D00812B70 /* ContentView.swift */,
+				764AB76327D0EC0D00812B70 /* GPUContentView.swift */,
 				764AB76527D0EC0D00812B70 /* Renderer.swift */,
 				A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */,
+				A5F4839229F85A9B0077DA3E /* CPUContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,7 +205,8 @@
 				A544D2A929F4EC5F009C33E2 /* RenderState.swift in Sources */,
 				764AB76B27D0EC6500812B70 /* SwiftRayTracerApp.swift in Sources */,
 				A544D2A229F4E12B009C33E2 /* CPUMain.swift in Sources */,
-				764AB76727D0EC0D00812B70 /* ContentView.swift in Sources */,
+				764AB76727D0EC0D00812B70 /* GPUContentView.swift in Sources */,
+				A5F4839329F85A9B0077DA3E /* CPUContentView.swift in Sources */,
 				A544D2A529F4E4C5009C33E2 /* Ray.swift in Sources */,
 				764AB76627D0EC0D00812B70 /* appView.swift in Sources */,
 				A544D2A729F4E8D9009C33E2 /* SceneData.swift in Sources */,
