@@ -10,10 +10,11 @@ import SwiftUI
 struct appView: View {
     
     @EnvironmentObject var gamescene: GameScene
+    @State var shouldRender: Bool = false
     
     var body: some View {
         TabView {
-            GPUContentView()
+            GPUContentViewTabItem(shouldRender: $shouldRender)
                 .frame(width: 800, height: 600)
                 .environmentObject(gamescene)
                 .tabItem {

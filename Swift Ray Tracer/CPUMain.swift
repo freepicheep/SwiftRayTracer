@@ -11,8 +11,6 @@ import UIKit
 
 var gamescene:  GameScene = GameScene()
 
-let startDate = Date()
-
 let sphereCount = gamescene.spheres.count
 
 let PHI: Float = 1.61803398874989484820459
@@ -38,9 +36,8 @@ func randomVec(_ xy: simd_float2, _ seed: Float) -> simd_float3 {
     )
 }
 
-// added this because I wasn't sure if reflect() was available
 func reflect(_ incoming: simd_float3, _ normal: simd_float3) -> simd_float3 {
-    return incoming - 2 * dot(incoming, normal) * normal
+    return incoming - 2 * dot(normal, incoming) * normal
 }
 
 func hit(_ ray: Ray, _ sphere: Sphere, _ tMin: Float, _ tMax: Float, _ renderState: inout RenderState) {
@@ -140,8 +137,10 @@ func rayTracingCPU(imageWidth: Int, imageHeight: Int, sceneData: SceneData, sphe
         }
         
         // Call the completion handler after processing each row.
-        if let cgImage = createCGImageFromFloat3Buffer(buffer: pixelData, width: imageWidth, height: j + 1) {
-            completionHandler(UIImage(cgImage: cgImage))
+        if j % 10 == 0 {
+            if let cgImage = createCGImageFromFloat3Buffer(buffer: pixelData, width: imageWidth, height: j + 1) {
+                completionHandler(UIImage(cgImage: cgImage))
+            }
         }
     }
     
