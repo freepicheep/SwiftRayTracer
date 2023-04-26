@@ -11,9 +11,8 @@ struct CPUContentView: View {
     @EnvironmentObject var gamescene: GameScene
     @ObservedObject var renderedImageModel = RenderedImageModel()
     
-    
     var body: some View {
-        Button(action: createCPUExample) {
+        Button(action: callCPURayTracer) {
             Text("Ray Trace Using CPU")
         }
         if let image = renderedImageModel.image {
@@ -21,30 +20,40 @@ struct CPUContentView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         }
-        
     }
     
-    func createCPUExample() {
-        let startTime = CACurrentMediaTime()
-        let sceneData = SceneData(
-            cameraPos: gamescene.camera.position,
-            sphereCount: gamescene.spheres.count,
-            maxBounces: gamescene.maxBounces,
-            cameraForwards: gamescene.camera.forwards,
-            cameraRight: gamescene.camera.right,
-            cameraUp: gamescene.camera.up
-        )
-
-        let imageWidth = 800
-        let imageHeight = 600
-
-        if let renderedImage = rayTracingCpu(imageWidth: imageWidth, imageHeight: imageHeight, sceneData: sceneData, spheres: gamescene.spheres) {
-                renderedImageModel.image = renderedImage
+    func callCPURayTracer() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let startTime = CACurrentMediaTime()
+            let sceneData = SceneData(
+                cameraPos: gamescene.camera.position,
+                sphereCount: gamescene.spheres.count,
+                maxBounces: gamescene.maxBounces,
+                cameraForwards: gamescene.camera.forwards,
+                cameraRight: gamescene.camera.right,
+                cameraUp: gamescene.camera.up
+            )
+            
+            let imageWidth = 800
+            let imageHeight = 600
+            
+            let pixelData = UnsafeMutablePointer<simd_float3>.allocate(capacity: imageWidth * imageHeight)
+            
+            if let finalImage = rayTracingCPU(imageWidth: imageWidth, imageHeight: imageHeight, sceneData: sceneData, spheres: gamescene.spheres, completionHandler: { updatedImage in
+                DispatchQueue.main.async {
+                    renderedImageModel.image = updatedImage
+                }
+            }) {
+                DispatchQueue.main.async {
+                    renderedImageModel.image = finalImage
+                }
+            }
+            
             let endTime = CACurrentMediaTime()
             let duration = endTime - startTime
-                print("CPU ray tracing took \(duration) seconds")
-        } else {
-            print("Error: Failed to render image.")
+            print("CPU ray tracing took \(duration) seconds")
+            
+            pixelData.deallocate()
         }
     }
 }

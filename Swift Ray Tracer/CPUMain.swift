@@ -50,7 +50,7 @@ func hit(_ ray: Ray, _ sphere: Sphere, _ tMin: Float, _ tMax: Float, _ renderSta
     let c = dot(co, co) - sphere.radius * sphere.radius
     let discriminant = b * b - 4.0 * a * c
 
-    if discriminant > 0 {
+    if discriminant >= 0 {
         let t = (-b - sqrt(discriminant)) / (2.0 * a)
         
         if t > tMin && t < tMax {
@@ -121,7 +121,7 @@ func rayColor(_ xy: simd_float2, _ ray: Ray, _ sceneData: SceneData, _ spheres: 
 }
 
 
-func rayTracingCpu(imageWidth: Int, imageHeight: Int, sceneData: SceneData, spheres: [Sphere]) -> UIImage? {
+func rayTracingCPU(imageWidth: Int, imageHeight: Int, sceneData: SceneData, spheres: [Sphere], completionHandler: @escaping (_ updatedImage: UIImage) -> Void) -> UIImage? {
     let pixelData = UnsafeMutablePointer<simd_float3>.allocate(capacity: imageWidth * imageHeight)
     
     for j in 0..<imageHeight {
@@ -138,6 +138,11 @@ func rayTracingCpu(imageWidth: Int, imageHeight: Int, sceneData: SceneData, sphe
             let index = j * imageWidth + i
             pixelData[index] = color
         }
+        
+        // Call the completion handler after processing each row.
+        if let cgImage = createCGImageFromFloat3Buffer(buffer: pixelData, width: imageWidth, height: j + 1) {
+            completionHandler(UIImage(cgImage: cgImage))
+        }
     }
     
     if let cgImage = createCGImageFromFloat3Buffer(buffer: pixelData, width: imageWidth, height: imageHeight) {
@@ -149,6 +154,7 @@ func rayTracingCpu(imageWidth: Int, imageHeight: Int, sceneData: SceneData, sphe
         return nil
     }
 }
+
 
 func createCGImageFromFloat3Buffer(buffer: UnsafePointer<simd_float3>, width: Int, height: Int) -> CGImage? {
     let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!

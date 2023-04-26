@@ -20,7 +20,7 @@ struct GPUContentView: UIViewRepresentable {
         
         let mtkView = MTKView()
         mtkView.delegate = context.coordinator
-        mtkView.preferredFramesPerSecond = 60
+        mtkView.preferredFramesPerSecond = 1
         mtkView.enableSetNeedsDisplay = true
         
         if let metalDevice = MTLCreateSystemDefaultDevice() {
