@@ -8,7 +8,7 @@
 import SwiftUI
 import MetalKit
 
-struct ContentView: UIViewRepresentable {
+struct GPUContentView: UIViewRepresentable {
     
     @EnvironmentObject var gamescene: GameScene
     
@@ -16,11 +16,11 @@ struct ContentView: UIViewRepresentable {
         Renderer(self, gamescene: gamescene)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<ContentView>) -> MTKView {
+    func makeUIView(context: UIViewRepresentableContext<GPUContentView>) -> MTKView {
         
         let mtkView = MTKView()
         mtkView.delegate = context.coordinator
-        mtkView.preferredFramesPerSecond = 60
+        mtkView.preferredFramesPerSecond = 1
         mtkView.enableSetNeedsDisplay = true
         
         if let metalDevice = MTLCreateSystemDefaultDevice() {
@@ -35,12 +35,12 @@ struct ContentView: UIViewRepresentable {
         return mtkView
     }
     
-    func updateUIView(_ uiView: MTKView, context: UIViewRepresentableContext<ContentView>) {
+    func updateUIView(_ uiView: MTKView, context: UIViewRepresentableContext<GPUContentView>) {
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GPUContentView()
     }
 }

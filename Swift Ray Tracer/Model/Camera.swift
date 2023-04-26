@@ -12,14 +12,14 @@ class Camera {
      Represents a camera in the scene
      */
     
-    var position: vector_float3
+    var position: simd_float3
     var theta: Float
     var phi: Float
-    var forwards: vector_float3
-    var right: vector_float3
-    var up: vector_float3
+    var forwards: simd_float3
+    var right: simd_float3
+    var up: simd_float3
     
-    init(position: vector_float3) {
+    init(position: simd_float3) {
         
         self.position = position;
         theta = 0
@@ -39,10 +39,22 @@ class Camera {
             sin(phi * 180.0 / .pi)
         ]
         
-        let global_up: vector_float3 = [0.0, 0.0, 1.0];
+        let global_up: simd_float3 = [0.0, 0.0, 1.0];
         
         right = normalize(cross(forwards, global_up))
         
         up = normalize(cross(right, forwards))
+    }
+    
+    func getRay(u: Float, v: Float, height: Int, width: Int) -> Ray {
+        let viewportWidth = 2.0 * tan(60.0 * Float.pi / 180.0 / 2.0)
+        let viewportHeight = viewportWidth * Float(height) / Float(width)
+        
+        let lowerLeftCorner = position + forwards - right * (viewportWidth / 2.0) - up * (viewportHeight / 2.0)
+        let horizontal = right * viewportWidth
+        let vertical = up * viewportHeight
+        
+        let direction = lowerLeftCorner + horizontal * u + vertical * v - position
+        return Ray(origin: position, direction: normalize(direction))
     }
 }

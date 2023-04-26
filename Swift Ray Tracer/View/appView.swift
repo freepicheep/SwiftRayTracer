@@ -7,29 +7,33 @@
 
 import SwiftUI
 
-/*
- game scene will be automatically forwarded here...
- */
 struct appView: View {
     
     @EnvironmentObject var gamescene: GameScene
     
     var body: some View {
-        VStack{
-            Text("Ray Tracing!")
-        
-            ContentView()
+        TabView {
+            GPUContentView()
                 .frame(width: 800, height: 600)
+                .environmentObject(gamescene)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "power")
+                        Text("GPU Rendered")
+                    }
+                }
+                .tag(0)
             
+            CPUContentView()
+                .frame(width: 800, height: 600)
+                .environmentObject(gamescene)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "cpu")
+                        Text("CPU Rendered")
+                    }
+                }
+                .tag(1)
         }
-    }
-}
-
-/*
- ...but must be manually forwarded if a preview is requested
- */
-struct appView_Previews: PreviewProvider {
-    static var previews: some View {
-        appView().environmentObject(GameScene())
     }
 }

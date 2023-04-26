@@ -13,7 +13,7 @@
 		764AB74C27D0E93000812B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764AB74B27D0E93000812B70 /* Assets.xcassets */; };
 		764AB74F27D0E93000812B70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 764AB74E27D0E93000812B70 /* Preview Assets.xcassets */; };
 		764AB76627D0EC0D00812B70 /* appView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76227D0EC0D00812B70 /* appView.swift */; };
-		764AB76727D0EC0D00812B70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76327D0EC0D00812B70 /* ContentView.swift */; };
+		764AB76727D0EC0D00812B70 /* GPUContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76327D0EC0D00812B70 /* GPUContentView.swift */; };
 		764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76527D0EC0D00812B70 /* Renderer.swift */; };
 		764AB76B27D0EC6500812B70 /* SwiftRayTracerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76A27D0EC6500812B70 /* SwiftRayTracerApp.swift */; };
 		76F68F5028A73D10002175B4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 76F68F4F28A73D10002175B4 /* Shaders.metal */; };
@@ -21,7 +21,8 @@
 		A544D2A529F4E4C5009C33E2 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A429F4E4C5009C33E2 /* Ray.swift */; };
 		A544D2A729F4E8D9009C33E2 /* SceneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A629F4E8D9009C33E2 /* SceneData.swift */; };
 		A544D2A929F4EC5F009C33E2 /* RenderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A829F4EC5F009C33E2 /* RenderState.swift */; };
-		A544D2AB29F4ECC6009C33E2 /* GPTCPUCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2AA29F4ECC6009C33E2 /* GPTCPUCode.swift */; };
+		A5F4839129F84D2C0077DA3E /* RenderedImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */; };
+		A5F4839329F85A9B0077DA3E /* CPUContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4839229F85A9B0077DA3E /* CPUContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,7 @@
 		764AB74E27D0E93000812B70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		764AB75927D0EBD800812B70 /* definitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = definitions.h; sourceTree = "<group>"; };
 		764AB76227D0EC0D00812B70 /* appView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appView.swift; sourceTree = "<group>"; };
-		764AB76327D0EC0D00812B70 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		764AB76327D0EC0D00812B70 /* GPUContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUContentView.swift; sourceTree = "<group>"; };
 		764AB76527D0EC0D00812B70 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		764AB76A27D0EC6500812B70 /* SwiftRayTracerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRayTracerApp.swift; sourceTree = "<group>"; };
 		76F68F4F28A73D10002175B4 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -41,7 +42,9 @@
 		A544D2A429F4E4C5009C33E2 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		A544D2A629F4E8D9009C33E2 /* SceneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneData.swift; sourceTree = "<group>"; };
 		A544D2A829F4EC5F009C33E2 /* RenderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderState.swift; sourceTree = "<group>"; };
-		A544D2AA29F4ECC6009C33E2 /* GPTCPUCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTCPUCode.swift; sourceTree = "<group>"; };
+		A5F4838F29F84C660077DA3E /* Swift Ray Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift Ray Tracer.entitlements"; sourceTree = "<group>"; };
+		A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderedImageModel.swift; sourceTree = "<group>"; };
+		A5F4839229F85A9B0077DA3E /* CPUContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +72,6 @@
 		764AB73B27D0E92F00812B70 = {
 			isa = PBXGroup;
 			children = (
-				A544D2AA29F4ECC6009C33E2 /* GPTCPUCode.swift */,
-				A544D2A129F4E12B009C33E2 /* CPUMain.swift */,
 				764AB74627D0E92F00812B70 /* Swift Ray Tracer */,
 				764AB74527D0E92F00812B70 /* Products */,
 			);
@@ -87,6 +88,8 @@
 		764AB74627D0E92F00812B70 /* Swift Ray Tracer */ = {
 			isa = PBXGroup;
 			children = (
+				A5F4838F29F84C660077DA3E /* Swift Ray Tracer.entitlements */,
+				A544D2A129F4E12B009C33E2 /* CPUMain.swift */,
 				76010A6128C2D5FA00843067 /* Model */,
 				764AB76127D0EC0D00812B70 /* View */,
 				764AB75927D0EBD800812B70 /* definitions.h */,
@@ -110,8 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				764AB76227D0EC0D00812B70 /* appView.swift */,
-				764AB76327D0EC0D00812B70 /* ContentView.swift */,
+				764AB76327D0EC0D00812B70 /* GPUContentView.swift */,
 				764AB76527D0EC0D00812B70 /* Renderer.swift */,
+				A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */,
+				A5F4839229F85A9B0077DA3E /* CPUContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,12 +205,13 @@
 				A544D2A929F4EC5F009C33E2 /* RenderState.swift in Sources */,
 				764AB76B27D0EC6500812B70 /* SwiftRayTracerApp.swift in Sources */,
 				A544D2A229F4E12B009C33E2 /* CPUMain.swift in Sources */,
-				764AB76727D0EC0D00812B70 /* ContentView.swift in Sources */,
+				764AB76727D0EC0D00812B70 /* GPUContentView.swift in Sources */,
+				A5F4839329F85A9B0077DA3E /* CPUContentView.swift in Sources */,
 				A544D2A529F4E4C5009C33E2 /* Ray.swift in Sources */,
-				A544D2AB29F4ECC6009C33E2 /* GPTCPUCode.swift in Sources */,
 				764AB76627D0EC0D00812B70 /* appView.swift in Sources */,
 				A544D2A729F4E8D9009C33E2 /* SceneData.swift in Sources */,
 				764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */,
+				A5F4839129F84D2C0077DA3E /* RenderedImageModel.swift in Sources */,
 				76010A6528C2D8B700843067 /* Camera.swift in Sources */,
 				76010A6728C2DB9300843067 /* Sphere.swift in Sources */,
 				76F68F5028A73D10002175B4 /* Shaders.metal in Sources */,
@@ -336,6 +342,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Swift Ray Tracer/Swift Ray Tracer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Swift Ray Tracer/Preview Content\"";
@@ -354,6 +362,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageThreeFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Swift Ray Tracer/definitions.h";
 				SWIFT_VERSION = 5.0;
@@ -366,6 +378,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Swift Ray Tracer/Swift Ray Tracer.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Swift Ray Tracer/Preview Content\"";
@@ -384,6 +398,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageThreeFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Swift Ray Tracer/definitions.h";
 				SWIFT_VERSION = 5.0;
