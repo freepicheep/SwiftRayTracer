@@ -21,7 +21,8 @@
 		A544D2A529F4E4C5009C33E2 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A429F4E4C5009C33E2 /* Ray.swift */; };
 		A544D2A729F4E8D9009C33E2 /* SceneData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A629F4E8D9009C33E2 /* SceneData.swift */; };
 		A544D2A929F4EC5F009C33E2 /* RenderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544D2A829F4EC5F009C33E2 /* RenderState.swift */; };
-		A55AEE3729F9D45E0081353C /* GPUContentViewTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55AEE3629F9D45E0081353C /* GPUContentViewTabItem.swift */; };
+		A55AEE3929F9F1300081353C /* GPUContentViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55AEE3829F9F1300081353C /* GPUContentViewContainer.swift */; };
+		A55AEE3B29F9F9ED0081353C /* CPURenderedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55AEE3A29F9F9ED0081353C /* CPURenderedImageView.swift */; };
 		A5F4839129F84D2C0077DA3E /* RenderedImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */; };
 		A5F4839329F85A9B0077DA3E /* CPUContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4839229F85A9B0077DA3E /* CPUContentView.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +44,8 @@
 		A544D2A429F4E4C5009C33E2 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		A544D2A629F4E8D9009C33E2 /* SceneData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneData.swift; sourceTree = "<group>"; };
 		A544D2A829F4EC5F009C33E2 /* RenderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderState.swift; sourceTree = "<group>"; };
-		A55AEE3629F9D45E0081353C /* GPUContentViewTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPUContentViewTabItem.swift; sourceTree = "<group>"; };
+		A55AEE3829F9F1300081353C /* GPUContentViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPUContentViewContainer.swift; sourceTree = "<group>"; };
+		A55AEE3A29F9F9ED0081353C /* CPURenderedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPURenderedImageView.swift; sourceTree = "<group>"; };
 		A5F4838F29F84C660077DA3E /* Swift Ray Tracer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift Ray Tracer.entitlements"; sourceTree = "<group>"; };
 		A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderedImageModel.swift; sourceTree = "<group>"; };
 		A5F4839229F85A9B0077DA3E /* CPUContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUContentView.swift; sourceTree = "<group>"; };
@@ -119,7 +121,8 @@
 				764AB76527D0EC0D00812B70 /* Renderer.swift */,
 				A5F4839029F84D2C0077DA3E /* RenderedImageModel.swift */,
 				A5F4839229F85A9B0077DA3E /* CPUContentView.swift */,
-				A55AEE3629F9D45E0081353C /* GPUContentViewTabItem.swift */,
+				A55AEE3829F9F1300081353C /* GPUContentViewContainer.swift */,
+				A55AEE3A29F9F9ED0081353C /* CPURenderedImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,13 +209,14 @@
 			files = (
 				76010A6328C2D61C00843067 /* GameScene.swift in Sources */,
 				A544D2A929F4EC5F009C33E2 /* RenderState.swift in Sources */,
+				A55AEE3929F9F1300081353C /* GPUContentViewContainer.swift in Sources */,
 				764AB76B27D0EC6500812B70 /* SwiftRayTracerApp.swift in Sources */,
+				A55AEE3B29F9F9ED0081353C /* CPURenderedImageView.swift in Sources */,
 				A544D2A229F4E12B009C33E2 /* CPUMain.swift in Sources */,
 				764AB76727D0EC0D00812B70 /* GPUContentView.swift in Sources */,
 				A5F4839329F85A9B0077DA3E /* CPUContentView.swift in Sources */,
 				A544D2A529F4E4C5009C33E2 /* Ray.swift in Sources */,
 				764AB76627D0EC0D00812B70 /* appView.swift in Sources */,
-				A55AEE3729F9D45E0081353C /* GPUContentViewTabItem.swift in Sources */,
 				A544D2A729F4E8D9009C33E2 /* SceneData.swift in Sources */,
 				764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */,
 				A5F4839129F84D2C0077DA3E /* RenderedImageModel.swift in Sources */,
