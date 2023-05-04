@@ -14,7 +14,7 @@ class GameScene: ObservableObject {
     
     @Published var camera: Camera
     @Published var spheres: [Sphere]
-    @Published var maxBounces: Int = 1
+    @Published var maxBounces: Int = 50
     
     init() {
         

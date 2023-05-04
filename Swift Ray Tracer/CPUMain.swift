@@ -41,6 +41,7 @@ func reflect(_ incoming: simd_float3, _ normal: simd_float3) -> simd_float3 {
 }
 
 func hit(_ ray: Ray, _ sphere: Sphere, _ tMin: Float, _ tMax: Float, _ renderState: inout RenderState) {
+    // Thank you, Carl Friedrich Gauss, for discovering these math stuff
     let co = ray.origin - sphere.center
     let a = dot(ray.direction, ray.direction)
     let b = 2.0 * dot(ray.direction, co)
