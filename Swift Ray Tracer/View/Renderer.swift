@@ -9,9 +9,9 @@ import MetalKit
 
 class Renderer: NSObject, MTKViewDelegate {
     // Add a property to control the rendering loop
-    var isRendering: Bool = true
     var frameCount: Int = 0
     let maxFrameCount: Int = 1
+    var shouldRender: Bool
     
     var parent: GPUContentView
     var metalDevice: MTLDevice!
@@ -19,9 +19,10 @@ class Renderer: NSObject, MTKViewDelegate {
     var pipeline: MTLComputePipelineState!
     var gamescene: GameScene
     
-    init(_ parent: GPUContentView, gamescene: GameScene) {
+    init(_ parent: GPUContentView, gamescene: GameScene, shouldRender: Bool) {
         
         self.gamescene = gamescene
+        self.shouldRender = shouldRender
         
         self.parent = parent
         if let metalDevice = MTLCreateSystemDefaultDevice() {
@@ -91,7 +92,7 @@ class Renderer: NSObject, MTKViewDelegate {
     
     func draw(in view: MTKView) {
         // Check if rendering should continue
-        if !isRendering || frameCount >= maxFrameCount {
+        if !shouldRender || frameCount >= maxFrameCount {
             return
         }
         
@@ -119,7 +120,7 @@ class Renderer: NSObject, MTKViewDelegate {
         */
         var sceneData: Shader_SceneData = Shader_SceneData()
         sceneData.sphereCount = Float(sphereCount)
-        sceneData.maxBounces = 10
+        sceneData.maxBounces = Float(gamescene.maxBounces)
         sceneData.camera_pos = gamescene.camera.position
         sceneData.camera_forwards = gamescene.camera.forwards
         sceneData.camera_right = gamescene.camera.right
@@ -154,7 +155,12 @@ class Renderer: NSObject, MTKViewDelegate {
         renderEncoder.dispatchThreads(threadsPerGrid, threadsPerThreadgroup: threadsPerGroup)
         renderEncoder.endEncoding()
         commandBuffer.present(drawable)
+        let startTime = CACurrentMediaTime()
         commandBuffer.commit()
+        commandBuffer.waitUntilCompleted()
+        let endTime = CACurrentMediaTime()
+        let duration = endTime - startTime
+        print("GPU ray tracing took \(duration) seconds")
         
         // Increment the frame count
         frameCount += 1

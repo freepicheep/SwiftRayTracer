@@ -9,16 +9,22 @@ import SwiftUI
 
 struct CPUContentView: View {
     @EnvironmentObject var gamescene: GameScene
-    @ObservedObject var renderedImageModel = RenderedImageModel()
+    @StateObject private var renderedImageModel = RenderedImageModel()
+    @State private var shouldRender: Bool = false
     
     var body: some View {
-        Button(action: callCPURayTracer) {
-            Text("Ray Trace Using CPU")
-        }
-        if let image = renderedImageModel.image {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+        VStack {
+            if !shouldRender {
+                Button(action: {
+                    shouldRender.toggle()
+                    callCPURayTracer()
+                    
+                }) {
+                    Text("Ray Trace Using CPU!")
+                }
+            }
+            RenderedImageView(renderedImageModel: renderedImageModel)
+                .id(renderedImageModel.image) // Add this line
         }
     }
     

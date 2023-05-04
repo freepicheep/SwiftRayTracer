@@ -10,27 +10,26 @@ import SwiftUI
 struct appView: View {
     
     @EnvironmentObject var gamescene: GameScene
+    @State var shouldRender: Bool = false
     
     var body: some View {
         TabView {
-            GPUContentView()
-                .frame(width: 800, height: 600)
-                .environmentObject(gamescene)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "power")
-                        Text("GPU Rendered")
-                    }
-                }
-                .tag(0)
-            
             CPUContentView()
-                .frame(width: 800, height: 600)
                 .environmentObject(gamescene)
                 .tabItem {
                     VStack {
                         Image(systemName: "cpu")
                         Text("CPU Rendered")
+                    }
+                }
+                .tag(0)
+            
+            GPUContentViewContainer(shouldRender: $shouldRender)
+                .environmentObject(gamescene)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "power")
+                        Text("GPU Rendered")
                     }
                 }
                 .tag(1)

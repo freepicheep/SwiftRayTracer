@@ -11,9 +11,10 @@ import MetalKit
 struct GPUContentView: UIViewRepresentable {
     
     @EnvironmentObject var gamescene: GameScene
+    @Binding var shouldRender: Bool
     
     func makeCoordinator() -> Renderer {
-        Renderer(self, gamescene: gamescene)
+        Renderer(self, gamescene: gamescene, shouldRender: shouldRender)
     }
     
     func makeUIView(context: UIViewRepresentableContext<GPUContentView>) -> MTKView {
@@ -36,11 +37,5 @@ struct GPUContentView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MTKView, context: UIViewRepresentableContext<GPUContentView>) {
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        GPUContentView()
     }
 }
