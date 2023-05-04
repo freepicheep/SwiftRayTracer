@@ -6,7 +6,11 @@ The goal of this project is to compare ray tracing on the CPU and GPU. Currently
 
 # Usage
 
-Open the project in Xcode. You will probably have to change the developer team to your dev profile under the project settings. You can then run the project by clicking on the run button or by pressing `Command + R`.
+Open the project in Xcode. You will probably have to change the developer team to your dev profile under the project settings. You can then run the project by clicking on the run button or by pressing `Command + R`. Check the log to compare the results. 
+
+# Results
+
+Currently, the CPU version takes `14.38` seconds and the GPU version took `0.022` seconds. This was with the `maxBounce` being set to `50`. 
 
 # Nerdy Details 
 
