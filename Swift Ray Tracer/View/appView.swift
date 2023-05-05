@@ -14,16 +14,6 @@ struct appView: View {
     
     var body: some View {
         TabView {
-            CPUContentView()
-                .environmentObject(gamescene)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "cpu")
-                        Text("CPU Rendered")
-                    }
-                }
-                .tag(0)
-            
             GPUContentViewContainer(shouldRender: $shouldRender)
                 .environmentObject(gamescene)
                 .tabItem {
@@ -32,7 +22,14 @@ struct appView: View {
                         Text("GPU Rendered")
                     }
                 }
-                .tag(1)
+            CPUContentView()
+                .environmentObject(gamescene)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "cpu")
+                        Text("CPU Rendered")
+                    }
+                }
         }
     }
 }
