@@ -38,11 +38,11 @@ When you run the program for both the CPU and GPU, you should see a pseudorandom
 
 #### CPU Ray Tracing
 
-[](CPU_Demo.gif)
+![](Demos/CPU_Demo.gif)
 
 #### GPU Ray Tracing
 
-[](GPU_Demo.gif)
+![](Demos/GPU_Demo.gif)
 
 ### Performance Analysis
 
